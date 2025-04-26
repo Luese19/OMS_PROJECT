@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*" Name="MyApp" Language="1033" Version="1.0.0.0" Manufacturer="MyCompany" UpgradeCode="PUT-GUID-HERE">
+    <Package InstallerVersion="500" Compressed="yes" InstallScope="perMachine" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+
+    <Media Id="1" Cabinet="cab1.cab" EmbedCab="yes" />
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="MyApp" />
+      </Directory>
+    </Directory>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="MainExecutable" Guid="67dabe5c-0234-4ead-a31e-07abaf037469">
+        <File Id="MyApp.exe" Source="..\target\MyApp.exe" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <Feature Id="ProductFeature" Title="MyApp" Level="1">
+      <ComponentRef Id="MainExecutable" />
+    </Feature>
+  </Product>
+</Wix>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project_system.org.ADDEMPLOYEE">
+   <children>
+      <ImageView fx:id="btnPRINT" fitHeight="47.0" fitWidth="59.0" layoutX="22.0" layoutY="400.0" onMouseClicked="#btnPRINT" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/printer.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="btnPERFORAMNCE" fitHeight="47.0" fitWidth="47.0" layoutX="22.0" layoutY="317.0" onMouseClicked="#btnPERFORAMANCE" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/efficiency.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="btnCREATETASK" fitHeight="47.0" fitWidth="47.0" layoutX="28.0" layoutY="235.0" onMouseClicked="#btnCREATETASK" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/assign.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="btnHOME" fitHeight="47.0" fitWidth="48.0" layoutX="26.0" layoutY="150.0" onMouseClicked="#btnHOME" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/layout.png" />
+         </image>
+      </ImageView>
+      <Separator layoutX="100.0" orientation="VERTICAL" prefHeight="800.0" prefWidth="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="0.0" />
+      <ImageView fitHeight="59.0" fitWidth="59.0" layoutX="19.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/performance.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="23.0" layoutY="79.0" prefHeight="23.0" prefWidth="59.0" text="POMS ">
+         <font>
+            <Font name="Roboto Bold" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="LOGOUT" fitHeight="35.0" fitWidth="34.0" layoutX="35.0" layoutY="732.0" onMouseClicked="#BTN_LOGOUT" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/exit.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="202.4" layoutY="51.2" prefHeight="706.0" prefWidth="1007.0" style="-fx-background-color: #001a69; -fx-background-radius: 10PX;" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="202.0" AnchorPane.rightAnchor="71.0" AnchorPane.topAnchor="51.0">
+         <children>
+            <AnchorPane layoutX="119.0" layoutY="21.0" AnchorPane.bottomAnchor="21.600000000000023" AnchorPane.topAnchor="21.0">
+               <children>
+                  <TextField fx:id="TXT_ID" layoutY="29.0" prefHeight="40.0" prefWidth="362.0" style="-fx-background-radius: 10PX;" AnchorPane.leftAnchor="2.4" AnchorPane.rightAnchor="0.0" />
+                  <Label layoutX="2.0" prefHeight="18.0" prefWidth="145.0" text="Employee ID" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="TXT_NAME" layoutY="113.0" prefHeight="40.0" prefWidth="362.0" style="-fx-background-radius: 10PX;" AnchorPane.leftAnchor="2.4" AnchorPane.rightAnchor="0.0" />
+                  <Label layoutX="2.0" layoutY="84.0" prefHeight="18.0" prefWidth="145.0" text="Employee Name" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="TXT_SURENAME" layoutX="2.0" layoutY="196.0" prefHeight="40.0" prefWidth="362.0" style="-fx-background-radius: 10PX;" AnchorPane.leftAnchor="2.4" AnchorPane.rightAnchor="0.0" />
+                  <Label layoutX="4.0" layoutY="167.0" prefHeight="18.0" prefWidth="145.0" text="Employee Surename" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="TXT_EMAIL" layoutX="2.0" layoutY="279.0" prefHeight="40.0" prefWidth="362.0" style="-fx-background-radius: 10PX;" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="5.684341886080802E-14" />
+                  <Label layoutX="4.0" layoutY="250.0" prefHeight="22.0" prefWidth="186.0" text="Employee Email" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="TXT_PASS" layoutX="2.0" layoutY="366.0" prefHeight="40.0" prefWidth="362.0" style="-fx-background-radius: 10PX;" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="5.684341886080802E-14" />
+                  <Label layoutX="4.0" layoutY="337.0" prefHeight="22.0" prefWidth="186.0" text="Employee Password" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="TXT_DEPARTMENT" layoutX="2.0" layoutY="453.0" prefHeight="40.0" prefWidth="362.0" style="-fx-background-radius: 10PX;" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="5.684341886080802E-14" />
+                  <Label layoutX="4.0" layoutY="424.0" prefHeight="22.0" prefWidth="186.0" text="Employee Department" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="TXT_POSITION" layoutX="2.0" layoutY="536.0" prefHeight="40.0" prefWidth="362.0" style="-fx-background-radius: 10PX;" AnchorPane.leftAnchor="1.6000000000000227" AnchorPane.rightAnchor="0.4000000000000341" />
+                  <Label layoutX="4.0" layoutY="507.0" prefHeight="22.0" prefWidth="186.0" text="Employee Position" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <ImageView fx:id="IMAGE_VIEW" fitHeight="138.0" fitWidth="146.0" layoutX="690.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="465.5999999999999" AnchorPane.rightAnchor="170.39999999999986" AnchorPane.topAnchor="102.0" />
+            <Button fx:id="BTN_ADDPICTURE" layoutX="677.0" layoutY="256.0" mnemonicParsing="false" onMouseClicked="#BTN_PICTURE" prefHeight="47.0" prefWidth="170.0" text="ADD PICTURE" AnchorPane.bottomAnchor="403.2" AnchorPane.rightAnchor="158.9999999999999" AnchorPane.topAnchor="256.0" />
+            <Button fx:id="BTN_ADD_EMPLOYEE" graphicTextGap="10.0" layoutX="698.9999999999998" layoutY="459.0" mnemonicParsing="false" onMouseClicked="#BTN_ADD_EMPLOYEE" prefHeight="34.0" prefWidth="139.0" text="ADD" AnchorPane.rightAnchor="168.20000000000005">
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../pictures/add-button.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="BTNE_CANCEL" graphicTextGap="30.0" layoutX="699.0" layoutY="519.0" mnemonicParsing="false" onMouseClicked="#BTN_CANCEL" prefHeight="44.0" prefWidth="139.0" text="CANCEL" AnchorPane.rightAnchor="168.19999999999982">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

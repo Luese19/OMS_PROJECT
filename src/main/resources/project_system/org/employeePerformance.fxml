@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.StackedBarChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project_system.org.EMP_PERFORMANCE_CONTROLLER">
+    <top>
+        <HBox alignment="CENTER" style="-fx-background-color: #2c3e50; -fx-padding: 10;">
+            <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white;" text="Employee Performance Dashboard" />
+        </HBox>
+    </top>
+    <center>
+        <VBox alignment="CENTER" spacing="20" style="-fx-padding: 20;">
+            <TableView fx:id="performanceTable" prefHeight="400" prefWidth="600" style="-fx-border-color: #bdc3c7;">
+                <columns>
+                    <TableColumn fx:id="statusColumn" prefWidth="86.39999389648438" text="Status" />
+                    <TableColumn fx:id="taskColumn" prefWidth="251.20001220703125" text="Task" />
+                    <TableColumn fx:id="completionDateColumn" prefWidth="128.79998779296875" text="Completion Date" />
+                    <TableColumn fx:id="ratingColumn" prefWidth="132.00006103515625" text="Performance Rating" />
+                </columns>
+            </TableView>
+            <StackedBarChart fx:id="ganttChart" prefHeight="300" prefWidth="600" style="-fx-padding: 20;" title="Task Progress">
+                <xAxis>
+                    <CategoryAxis fx:id="taskAxis" label="Tasks" />
+                </xAxis>
+                <yAxis>
+                    <NumberAxis fx:id="timeAxis" label="Time (Days)" />
+                </yAxis>
+            </StackedBarChart>
+            <Button fx:id="exportButton" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 10;" text="Export to PDF" />
+        </VBox>
+    </center>
+    <bottom>
+        <VBox alignment="CENTER" spacing="10" style="-fx-padding: 10;">
+            <HBox alignment="CENTER" onMouseClicked="#handleBackButtonAction" spacing="10">
+                <Button fx:id="backButton" onMouseClicked="#handleBackButtonAction" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-padding: 10;" text="Back" />
+            </HBox>
+            <Label style="-fx-font-size: 12px; -fx-text-fill: #7f8c8d;" text="© 2025 Your Company Name" />
+        </VBox>
+    </bottom>
+</BorderPane>

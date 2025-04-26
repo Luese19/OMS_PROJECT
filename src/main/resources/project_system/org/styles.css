@@ -1,0 +1,23 @@
+/* styles.css */
+.tab-pane {
+    -fx-background-color: #ffffff;
+}
+
+.tab {
+    -fx-background-color: #f3abab;
+    -fx-border-color: #dfdfdf;
+    -fx-border-width: 1px;
+    -fx-padding: 5px;
+}
+
+.tab:selected {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #000000;
+    -fx-border-width: 1px;
+}
+
+.tab-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
