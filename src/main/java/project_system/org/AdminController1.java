@@ -613,16 +613,23 @@ public class AdminController1  extends Method{
               
             @FXML
             void BTN_LOGOUT(MouseEvent event) {
-              //logout
-              clearUserSession();
-        
-              // Redirect to login screen
-              try {
-                  App.setRoot("Login", 1300, 810);
-              } catch (IOException e) {
-                  e.printStackTrace();
-              }
-          
+                Alert alert = new Alert(AlertType.CONFIRMATION);
+                alert.setTitle("Logout Confirmation");
+                alert.setHeaderText(null);
+                alert.setContentText("Are you sure you want to logout?");
+
+                alert.showAndWait().ifPresent(response -> {
+                    if (response == ButtonType.OK) {
+                        clearUserSession();
+
+                        // Redirect to login screen
+                        try {
+                            App.setRoot("Login", 1300, 810);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
             }
         
             private void clearUserSession() {
@@ -1466,44 +1473,55 @@ public class FileUtils {
     }
     
     @FXML
-    void BTN_SETTINGS(MouseEvent event) {
-        Stage stage = new Stage();
-        stage.setTitle("Settings");
+    private Button BTN_CHANGE_WEBVIEW;
 
-        VBox vbox = new VBox(10);
-        vbox.setPadding(new Insets(10));
+@FXML
+void BTN_SETTINGS(MouseEvent event) {
+    Stage stage = new Stage();
+    stage.setTitle("Settings");
 
-        Label dbLabel = new Label("Database URL:");
-        TextField dbField = new TextField(DB_URL);
+    VBox vbox = new VBox(10);
+    vbox.setPadding(new Insets(10));
 
-        Label userLabel = new Label("Database User:");
-        TextField userField = new TextField(USER);
+    Label dbLabel = new Label("Database URL:");
+    TextField dbField = new TextField(DB_URL);
 
-        Label passwordLabel = new Label("Database Password:");
-        PasswordField passwordField = new PasswordField();
-        passwordField.setText(PASSWORD);
+    Label userLabel = new Label("Database User:");
+    TextField userField = new TextField(USER);
 
-        Button saveButton = new Button("Save");
-        saveButton.setOnAction(e -> {
-            String newDbUrl = dbField.getText();
-            String newUser = userField.getText();
-            String newPassword = passwordField.getText();
+    Label passwordLabel = new Label("Database Password:");
+    PasswordField passwordField = new PasswordField();
+    passwordField.setText(PASSWORD);
 
-            System.out.println("Settings updated:");
-            System.out.println("DB URL: " + newDbUrl);
-            System.out.println("User: " + newUser);
-            System.out.println("Password: " + newPassword);
+    Label webviewLabel = new Label("WebView URL:");
+    TextField webviewField = new TextField(webview.getEngine().getLocation());
 
-            stage.close();
-        });
+    Button saveButton = new Button("Save");
+    saveButton.setOnAction(e -> {
+        String newDbUrl = dbField.getText();
+        String newUser = userField.getText();
+        String newPassword = passwordField.getText();
+        String newWebviewUrl = webviewField.getText();
 
-        vbox.getChildren().addAll(dbLabel, dbField, userLabel, userField, passwordLabel, passwordField, saveButton);
+        // Update WebView URL
+        webview.getEngine().load(newWebviewUrl);
 
-        Scene scene = new Scene(vbox, 400, 300);
-        stage.setScene(scene);
-        stage.show();
-    }
+        System.out.println("Settings updated:");
+        System.out.println("DB URL: " + newDbUrl);
+        System.out.println("User: " + newUser);
+        System.out.println("Password: " + newPassword);
+        System.out.println("WebView URL: " + newWebviewUrl);
 
+        stage.close();
+    });
+
+    vbox.getChildren().addAll(dbLabel, dbField, userLabel, userField, passwordLabel, passwordField, webviewLabel, webviewField, saveButton);
+
+    Scene scene = new Scene(vbox, 400, 400);
+    stage.setScene(scene);
+    stage.show();
+}
+   //https://www.dilg.gov.ph/
 //============================== update the pending task status Column in the admin  when the task is already in the finisheddb=====================================================//
    
 public void updatePendingTaskStatus() {

@@ -458,6 +458,8 @@ public class ED_CONTROLLER1 extends Method {
         });
     }
 
+    //=============================================================SUBMIT========================================================
+
     private void Submit(Task task, File selectedFile) {
         if (selectedFile == null) {
             showAlert("Error", "No file selected. Please upload a file.");
@@ -474,13 +476,17 @@ public class ED_CONTROLLER1 extends Method {
         String project = task.getFor();
         String employee = task.getAssignedTo();
         String due = task.getDue();
-        String status = "Done";
+        String status = "Completed"; // Update status to Completed
 
         String insertquery = "INSERT INTO finisheddb (Title, Instruction, `For`, AssignedTo, Due,  File, FileData, FileType, status, FinishedDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
+        String updateQuery = "UPDATE taskdb SET Status = ? WHERE Title = ? AND AssignedTo = ? AND Due = ? AND `For` = ?"; // Update query for taskdb
+
         try (Connection connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
              PreparedStatement insertStatement = connection.prepareStatement(insertquery);
+             PreparedStatement updateStatement = connection.prepareStatement(updateQuery);
              FileInputStream fis = new FileInputStream(selectedFile)) {
 
+            // Insert into finisheddb
             insertStatement.setString(1, title);
             insertStatement.setString(2, instruction);
             insertStatement.setString(3, project);
@@ -494,9 +500,16 @@ public class ED_CONTROLLER1 extends Method {
             int rowsAffected = insertStatement.executeUpdate();
 
             if (rowsAffected > 0) {
+                // Update taskdb status to Completed
+                updateStatement.setString(1, status);
+                updateStatement.setString(2, title);
+                updateStatement.setString(3, employee);
+                updateStatement.setString(4, due);
+                updateStatement.setString(5, project);
+                updateStatement.executeUpdate();
+
                 pendingTable.getItems().remove(task); // Remove task from pending table
-                showAlert("Success", "Task assigned successfully.");
-                //add if the remove the pendinf table from the pending table if the task is successfully marked as done
+                showAlert("Success", "Task submitted successfully.");
                 finishedTable.getItems().add(task); // Add task to finished table
             } else {
                 showAlert("Error", "An error occurred. Please try again.");

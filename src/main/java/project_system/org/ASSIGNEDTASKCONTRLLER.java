@@ -137,16 +137,6 @@ public class ASSIGNEDTASKCONTRLLER {
 
     @FXML
     void BTN_ASSIGNED(MouseEvent event) {
-        if (selectedFile == null) {
-            showAlert("Error", "No file selected. Please upload a file.");
-            return;
-        }
-
-        if (!selectedFile.exists()) {
-            showAlert("Error", "Selected file does not exist. Please upload a valid file.");
-            return;
-        }
-
         String employee = COMBO_EMPLOYEE.getValue();
         String project = COMBO_PROJECT.getValue();
         String due = DUE_CALENDAR.getValue().toString();
@@ -154,43 +144,32 @@ public class ASSIGNEDTASKCONTRLLER {
         String title = TXT_SURNAME.getText();
         String status = "Pending";
 
-        String insertquery = "INSERT INTO taskdb (Title, Instruction, AssignedTo, Due, `For`, File, FileData, FileType, Status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String insertquery = "INSERT INTO taskdb (Title, Instruction, AssignedTo, Due, `For`, Status) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-             PreparedStatement insertStatement = connection.prepareStatement(insertquery);
-             FileInputStream fis = new FileInputStream(selectedFile)) {
+             PreparedStatement insertStatement = connection.prepareStatement(insertquery)) {
 
             insertStatement.setString(1, title);
             insertStatement.setString(2, instruction);
             insertStatement.setString(3, employee);
             insertStatement.setString(4, due);
             insertStatement.setString(5, project);
-            insertStatement.setString(6, selectedFile.getName());
-            insertStatement.setBinaryStream(7, fis, (int) selectedFile.length());
-            insertStatement.setString(8, getFileType(selectedFile));
-                        insertStatement.setString(9, status);
-            
-                        int rowsAffected = insertStatement.executeUpdate();
-            
-                        if (rowsAffected > 0) {
-                            showAlert("Success", "Task assigned successfully.");
-                            clearFields();
-                        } else {
-                            showAlert("Error", "An error occurred. Please try again.");
-                        }
-                    } catch (SQLIntegrityConstraintViolationException e) {
-                        showAlert("Error", "Duplicate entry. The task already exists.");
-                    } catch (SQLException | IOException e) {
-                        e.printStackTrace();
-                        showAlert("Error", "An error occurred. Please try again.");
-                    }
-                    // Handle assignment logic
-                }
-            
-                private String getFileType(File selectedFile2) {
-                    String fileName = selectedFile2.getName();
-                    String extension = fileName.substring(fileName.lastIndexOf(".") + 1);
-                    return extension;
-                }
+            insertStatement.setString(6, status);
+
+            int rowsAffected = insertStatement.executeUpdate();
+
+            if (rowsAffected > 0) {
+                showAlert("Success", "Task assigned successfully.");
+                clearFields();
+            } else {
+                showAlert("Error", "An error occurred. Please try again.");
+            }
+        } catch (SQLIntegrityConstraintViolationException e) {
+            showAlert("Error", "Duplicate entry. The task already exists.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            showAlert("Error", "An error occurred. Please try again.");
+        }
+    }
             
                 @FXML
     void BTN_LOGOUT(MouseEvent event) {
@@ -357,7 +336,7 @@ public class ASSIGNEDTASKCONTRLLER {
     @FXML
     void btnPERFORAMANCE(MouseEvent event) throws IOException {
 
-        App.setRoot("PEFORMANCE",  1300, 810);
+        App.setRoot("PERFORMANCE",  1300, 810);
 
     }
 
