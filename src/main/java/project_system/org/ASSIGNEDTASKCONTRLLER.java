@@ -329,14 +329,14 @@ public class ASSIGNEDTASKCONTRLLER {
     void btnHOME(MouseEvent event) throws IOException {
         // Handle home button logic
 
-        App.setRoot("DASHBOARD.fxml",  1300, 810);
+        App.setRoot("DASHBOARD",  1300, 810);
     }
 
     @FXML
     void btnPerformance(MouseEvent event) throws IOException {
         // Handle performance button logic
 
-        App.setRoot("PERFORMANCE.fxml",  1300, 810);
+        App.setRoot("PERFORMANCE",  1300, 810);
     }
 
     @FXML

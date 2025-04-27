@@ -2,9 +2,9 @@ package project_system.org;
 
 import java.awt.Desktop;
 import java.io.IOException;
-import java.net.HttpURLConnection;
+
 import java.net.URI;
-import java.net.URL;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -18,11 +18,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Hyperlink;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.control.TextFormatter;
 
 
 
@@ -40,8 +40,7 @@ public class LoginController {
     private TextField txtemail;
 
     @FXML
-    private PasswordField txtpass;
-
+    private TextField txtpass; // Changed from PasswordField to TextField
     @FXML
     private CheckBox showpass;
 
@@ -55,15 +54,14 @@ public class LoginController {
 
     @FXML
     private void initialize() {
-         showpass.selectedProperty().addListener((observable, oldValue, newValue) -> {
+        // Add a listener to toggle password visibility
+        showpass.selectedProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue) {
-                txtpass.setPromptText(txtpass.getText());
-                txtpass.setText(null);
-               txtpass.setDisable(true);
+                txtpass.setPromptText(txtpass.getText()); // Show the actual password in the prompt text
+                txtpass.setText(""); // Clear the text field
             } else {
-              txtpass.setText(txtpass.getPromptText());
-                txtpass.setPromptText(null);
-                txtpass.setDisable(false);
+                txtpass.setText(txtpass.getPromptText()); // Restore the password to the text field
+                txtpass.setPromptText(null); // Clear the prompt text
             }
         });
 

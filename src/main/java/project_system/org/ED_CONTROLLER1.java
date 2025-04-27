@@ -22,6 +22,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TableCell;
@@ -527,37 +528,42 @@ public class ED_CONTROLLER1 extends Method {
 
     @FXML
     void BTN_LOGOUT(MouseEvent event) {
+        Alert confirmationAlert = new Alert(AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Logout Confirmation");
+        confirmationAlert.setHeaderText(null);
+        confirmationAlert.setContentText("Are you sure you want to logout?");
         
-        clearUserSession();
-        // Redirect to login screen
-        try {
-            App.setRoot("Login", 1300, 810);
-        } catch (IOException e) {
-            e.printStackTrace();
+        confirmationAlert.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+                clearUserSession();
+                // Redirect to login screen
+                try {
+                    App.setRoot("Login", 1300, 810);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private void clearUserSession() {
+        UserSession.clear();
+    }
+
+    public static class UserSession {
+        private static String username;
+
+        public static void setUsername(String username) {
+            UserSession.username = username;
         }
-    
-      }
-  
-      private void clearUserSession() {
-          UserSession.clear();
-      }
-  
-      public static class UserSession {
-          private static String username;
-      
-          public static void setUsername(String username) {
-              UserSession.username = username;
-          }
-      
-          public static String getUsername() {
-              return username;
-          }
-      
-          public static void clear() {
-              username = null;
-          }
-      
-       
+
+        public static String getUsername() {
+            return username;
+        }
+
+        public static void clear() {
+            username = null;
+        }
     }
 
     @FXML
@@ -574,10 +580,12 @@ public class ED_CONTROLLER1 extends Method {
     }
 
     @FXML
-    void btnPERFORAMNCE(MouseEvent event) throws IOException {
+    private void btnPERFORMANCE(MouseEvent event) throws IOException {
+        // Add your logic here
+        System.out.println("Performance button clicked!");
         App.setRoot("employeePerformance", 1300, 810);
     }
-   
+
     @FXML
     void btn_priint(MouseEvent event) {
 

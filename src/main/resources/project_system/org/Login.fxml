@@ -5,7 +5,6 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -47,7 +46,7 @@
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
                <children>
-                  <PasswordField fx:id="txtpass" alignment="CENTER" layoutX="132.0" layoutY="24.0" prefHeight="41.0" prefWidth="282.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #dcdcdc;" />
+                  <TextField fx:id="txtpass" alignment="CENTER" layoutX="132.0" layoutY="24.0" prefHeight="41.0" prefWidth="282.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #dcdcdc;" />
                   <Label layoutX="132.0" text="Password" textFill="#919090" />
                </children>
             </AnchorPane>
