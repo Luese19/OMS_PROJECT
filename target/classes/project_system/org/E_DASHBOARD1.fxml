@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project_system.org.ED_CONTROLLER1">
+   <children>
+      <ImageView fx:id="btnPERFORAMANCE" fitHeight="47.0" fitWidth="47.0" layoutX="24.0" layoutY="313.0" onMouseClicked="#btnPERFORMANCE" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/efficiency.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="btnCalendar" fitHeight="47.0" fitWidth="47.0" layoutX="30.0" layoutY="235.0" onMouseClicked="#btnCalendar" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/schedule.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="btnHOME" fitHeight="47.0" fitWidth="48.0" layoutX="28.0" layoutY="150.0" onMouseClicked="#btnHOME" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/layout.png" />
+         </image>
+      </ImageView>
+      <Separator layoutX="100.0" orientation="VERTICAL" prefHeight="800.0" prefWidth="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="0.0" />
+      <ImageView fitHeight="59.0" fitWidth="59.0" layoutX="19.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/performance.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="23.0" layoutY="79.0" prefHeight="23.0" prefWidth="59.0" text="POMS ">
+         <font>
+            <Font name="Roboto Bold" size="18.0" />
+         </font>
+      </Label>
+      <TabPane layoutX="107.2" layoutY="239.0" prefHeight="556.0" prefWidth="1166.0" style="-fx-background-color: WHITE;" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="107.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="239.0">
+        <tabs>
+          <Tab style="-fx-background-color: #80c8ff; -fx-Font-color: white;" text="TASK">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #d1d1d1;">
+                     <children>
+                        <TabPane layoutX="-0.8" layoutY="0.6000000000000001" prefHeight="518.0" prefWidth="1166.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="-35.799999999999955" AnchorPane.leftAnchor="-0.8" AnchorPane.rightAnchor="0.7999999999999545" AnchorPane.topAnchor="0.6000000000000001">
+                          <tabs>
+                            <Tab fx:id="TP_Pendings" style="-fx-background-color: #f4b821;" text="Pending Task">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #003c7b;">
+                                       <children>
+                                          <TableView fx:id="pendingTable" prefHeight="482.0" prefWidth="1278.0" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-112.0" AnchorPane.topAnchor="0.0">
+                                            <columns>
+                                              <TableColumn fx:id="P_Title" prefWidth="138.4000473022461" text="Title" />
+                                                <TableColumn fx:id="P_Instruction" minWidth="0.0" prefWidth="183.99996948242188" text="Instruction" />
+                                                <TableColumn fx:id="P_For" prefWidth="197.60000610351562" text="For" />
+                                                <TableColumn fx:id="P_AssignedTo" prefWidth="112.0" text="Assigned To" />
+                                                <TableColumn fx:id="P_Due" prefWidth="86.39996337890625" text="Due" />
+                                                <TableColumn fx:id="P_Status" prefWidth="94.4000244140625" text="Status" />
+                                                <TableColumn fx:id="P_Filee" minWidth="0.0" prefWidth="110.0" text="File" />
+                                                <TableColumn fx:id="P_Add" minWidth="0.0" prefWidth="238.0" text="Upload &amp; Submit" />
+                                            </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab fx:id="TP_FINISHEDTASK" style="-fx-background-color: #20d471;" text="Finished Task">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #003c7b;">
+                                       <children>
+                                          <TableView fx:id="finishedTable" prefHeight="486.0" prefWidth="1166.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
+                                             <columns>
+                                                <TableColumn fx:id="F_Title" prefWidth="184.80001068115234" text="Title" />
+                                                <TableColumn fx:id="F_Instruction" prefWidth="240.0" text="Instruction" />
+                                                <TableColumn fx:id="F_For" prefWidth="199.0" text="For" />
+                                                <TableColumn fx:id="F_AssignedTo" prefWidth="199.0" text="Assigned To" />
+                                                <TableColumn fx:id="F_Due" prefWidth="152.0" text="Due" />
+                                                <TableColumn fx:id="F_File" minWidth="0.0" prefWidth="114.0" text="File" />
+                                                <TableColumn fx:id="F_Status" minWidth="0.0" prefWidth="77.0" text="Status" />
+                                             </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab fx:id="TP_MISSINGTASK" style="-fx-background-color: #d43e22;" text="Missing Task">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="MiissingTable" layoutY="-0.19999999999999996" prefHeight="454.0" prefWidth="1154.0" AnchorPane.bottomAnchor="35.39999999999998" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-0.19999999999999996">
+                                             <columns>
+                                                <TableColumn fx:id="M_ID" prefWidth="33.60000532865524" text="ID" />
+                                                <TableColumn fx:id="M_Title" prefWidth="171.99999237060547" text="Title" />
+                                                <TableColumn fx:id="M_Instruction" prefWidth="222.39993286132812" text="Instruction" />
+                                                <TableColumn fx:id="M_For" prefWidth="156.79998779296875" text="For" />
+                                                <TableColumn fx:id="M_AssignedTo" prefWidth="97.60003662109375" text="Assigned To" />
+                                                <TableColumn fx:id="M_Due" prefWidth="94.39996337890625" text="Due" />
+                                                <TableColumn fx:id="M_Status" prefWidth="95.199951171875" text="Status" />
+                                                <TableColumn fx:id="M_File" prefWidth="189.0" text="File" />
+                                                <TableColumn fx:id="M_done" prefWidth="101.0" text="Done" />
+                                             </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <ImageView fx:id="LOGOUT" fitHeight="47.0" fitWidth="47.0" layoutX="28.0" layoutY="732.0" onMouseClicked="#BTN_LOGOUT" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="1205.0">
+         <image>
+            <Image url="@../pictures/exit.png" />
+         </image>
+      </ImageView>
+      <WebView fx:id="webview3" layoutX="351.0" layoutY="19.0" prefHeight="209.0" prefWidth="917.0" AnchorPane.leftAnchor="351.0" AnchorPane.rightAnchor="12.0" />
+      <WebView fx:id="webview2" layoutX="107.0" layoutY="19.0" prefHeight="209.0" prefWidth="240.0" />
+      <ImageView fx:id="btnPrint" fitHeight="47.0" fitWidth="47.0" layoutX="24.0" layoutY="384.0" onMouseClicked="#btn_priint" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/printer.png" />
+         </image>
+      </ImageView>
+</children>
+</AnchorPane>

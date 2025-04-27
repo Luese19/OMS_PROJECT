@@ -1,0 +1,9 @@
+.table-view {
+    -fx-border-color: transparent; /* Remove the border around the TableView */
+    -fx-table-cell-border-color: transparent; /* Remove the cell borders */
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent; /* Remove the header background */
+    -fx-border-color: transparent; /* Remove the header border */
+}
